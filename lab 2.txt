@@ -1,0 +1,15 @@
+SELECT * Employees
+SELECT LastName from Employees WHERE Region IS NULL
+
+
+SELECT ProductName, UnitPrice FROM Products
+WHERE UnitPrice = (SELECT TOP 1 MIN(UnitePrice) FROM Products)
+UNION
+SELECT ProductName, UnitePrice FROM Products
+WHERE UnitPrice = (SELECT TOP 1 MAX(UnitPrice) FROM Products) 
+
+
+SELECT ProductName FROM Products
+SELECT ProductName FROM Products WHERE UnitePrice > (SELECT AVG(UnitePrice) FROM Products)
+SELECT sum(Freight) FROM Orders 
+
